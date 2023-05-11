@@ -1,0 +1,18 @@
+{
+    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.autoRefresh": true,
+    "inlayHint.refreshOnInsertMode": true,
+    "suggest.autoTrigger": "always",
+    "python.linting.enabled": true,
+    "suggest.triggerAfterInsertEnter": true,
+    "callHierarchy.enableTooltip": true,
+    "codeLens.enable": true,
+    "snippets.ultisnips.pythonPrompt": false,
+    "coc.preferences.formatOnSave": true,
+    "coc.preferences.formatOnType": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "colors.enable": true,
+    "diagnostic.enableHighlightLineNumber": true,
+    "dialog.rounded": true,
+    "suggest.virtualText": true,
+}
