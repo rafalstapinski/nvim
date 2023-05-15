@@ -26,6 +26,6 @@ vim.opt.updatetime = 50
 vim.opt.showtabline = 2
 vim.opt.autoread = true
 
-vim.opt.list = true   
+vim.opt.list = true
 
 vim.opt.clipboard = "unnamedplus"

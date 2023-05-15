@@ -45,7 +45,7 @@ map("i", "<S-Right>", "<Esc>v<Right>")
 cmap("˙", "b")
 cmap("¬", "e")
 map("i", "˙", "<Esc>bi")
-map("i", "¬", "<Esc>ei")
+map("i", "¬", "<Esc>ea")
 
 cmap("<C-h>", "^")
 cmap("<C-l>", "$")

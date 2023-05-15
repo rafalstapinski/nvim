@@ -91,6 +91,10 @@ return require("packer").startup(function(use)
     })
 
     use({
+        "neoclide/coc.nvim"
+    })
+
+    --[[ use({
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",
         requires = {
@@ -132,5 +136,5 @@ return require("packer").startup(function(use)
             -- null ls mason
             -- inlay hints
         }
-    })
+    }) ]]
 end)

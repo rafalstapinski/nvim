@@ -55,36 +55,36 @@ local lspconfig = require("lspconfig")
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.pyright.setup({})
-lspconfig.pylsp.setup({
-    settings = {
-        pylsp = {
-            plugins = {
-                rope_autoimport = {
-                    enabled = true
-                },
-                rope_completion = {
-                    enabled = true,
-                    eager = true,
-                },
-                pyflakes = {
-                    enabled = false,
-                },
-                autopep8 = {
-                    enabled = false,
-                },
-                pycodestyle = {
-                    enabled = false,
-                },
-                yapf = {
-                    enabled = false,
-                },
-                mccabe = {
-                    enabled = false,
-                },
-            }
-        }
-    }
-})
+-- lspconfig.pylsp.setup({
+--     settings = {
+--         pylsp = {
+--             plugins = {
+--                 rope_autoimport = {
+--                     enabled = true
+--                 },
+--                 rope_completion = {
+--                     enabled = true,
+--                     eager = true,
+--                 },
+--                 pyflakes = {
+--                     enabled = false,
+--                 },
+--                 autopep8 = {
+--                     enabled = false,
+--                 },
+--                 pycodestyle = {
+--                     enabled = false,
+--                 },
+--                 yapf = {
+--                     enabled = false,
+--                 },
+--                 mccabe = {
+--                     enabled = false,
+--                 },
+--             }
+--         }
+--     }
+-- })
 -- lspconfig.pyright.setup({})
 -- local pylance = require("pylance")
 -- pylance.setup()
