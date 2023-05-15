@@ -14,5 +14,5 @@
     "colors.enable": true,
     "diagnostic.enableHighlightLineNumber": true,
     "dialog.rounded": true,
-    "suggest.virtualText": true,
+    "suggest.virtualText": true
 }

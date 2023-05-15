@@ -24,10 +24,11 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
 -- sensible navigation
 cmap("j", "k")
 cmap("k", "j")
-map("n", "<Space>", "<Nop>", { silent = true })
+map("n", "<Space>", "<Nop>")
 map("n", "<S-Up>", "v<Up>")
 map("n", "<S-Down>", "v<Down>")
 map("n", "<S-Left>", "v<Left>")
@@ -41,31 +42,40 @@ map("i", "<S-Down>", "<Esc>v<Down>")
 map("i", "<S-Left>", "<Esc>v<Left>")
 map("i", "<S-Right>", "<Esc>v<Right>")
 
--- clipboard
+cmap("˙", "b")
+cmap("¬", "e")
+map("i", "˙", "<Esc>bi")
+map("i", "¬", "<Esc>ei")
+
+cmap("<C-h>", "^")
+cmap("<C-l>", "$")
+
+cmap("<A-Left>", "b")
+cmap("<A-Right>", "e")
+map("i", "<A-Left>", "<Esc>bi")
+map("i", "<A-Right>", "<Esc>ei")
+
+map("i", "<C-h>", "<Esc>^i")
+map("i", "<C-l>", "<Esc>$i")
+map("i", "<C-Left>", "<Esc>^i")
+map("i", "<C-Right>", "<Esc>$i")
+
+-- clipboard-y things
 map("v", "<C-c>", "y<Esc>i")
 map("v", "<C-x>", "d<Esc>i")
 allmap("<C-v>", "pi")
 map("i", "<C-v>", "<Esc>pi")
+map("n", "<BS>", "dd")
+map("v", "<BS>", "d")
+map("i", "<C-z>", "<Esc>ui")
+map("i", "<C-y>", "<Esc><CMD>redo<CR>i")
+cmap("<C-z>", "u")
+cmap("<C-y>", "<CMD>redo<CR>")
 munmap("p")
 munmap("x")
 munmap("y")
-map("n", "<BS>", "dd")
-map("v", "<BS>", "d")
-cmap("<C-z>", "u")
-cmap("<C-y>", "<CMD>redo<CR>")
+munmap("u")
 
-cmap("<A-Left>", "b")
-cmap("<A-Right>", "w")
-cmap("˙", "b")
-cmap("¬", "w")
-cmap("<C-h>", "^")
-cmap("<C-l>", "$")
-map("i", "<A-Left>", "<Esc>b")
-map("i", "<A-Right>", "<Esc>w")
-map("i", "<C-Left>", "<Esc>^")
-map("i", "<C-Right>", "<Esc>$")
-  
--- cmap("<C-.>", "<CMD>vim.lsp.buf.format()<CR>")
 -- move across windows
 allmap("<C-{>", "<C-W><C-H>")
 allmap("<C-}>", "<C-W><C-L>")
@@ -86,22 +96,11 @@ allmap("<C-w>", "<CMD>:bp | sp | bn | bd!<CR>")
 
 -- lazygit
 map("n", "<leader>g", "<CMD>LazyGit<CR>")
--- COC
 
-vim.keymap.set("i", "<TAB>", "coc#pum#visible() ? coc#pum#next(1) : '<TAB>'",
-    { noremap = true, silent = true, expr = true })
-vim.keymap.set("i", "<S-TAB>", "coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'", { noremap = true, expr = true })
-vim.keymap.set("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'",
-    { silent = true, expr = true, noremap = true })
--- vim.keymap.set("i", "<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<CR>"', {noremap = true, expr = true, silent = true})
-
-
-vim.keymap.set("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
-
-vim.keymap.set("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true, noremap = true })
-vim.keymap.set({ "n", "i" }, "<C-d>", "<Plug>(coc-definition)", { silent = true })
-vim.keymap.set({ "n", "i" }, "<C-.>", "<Plug>(coc-codeaction)", {})
-vim.keymap.set({ "n", "i" }, "<C-r>", "<Plug>(coc-rename)", {})
+-- telescope
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "<C-p>", telescope.find_files)
+vim.keymap.set("n", "<C-f>", telescope.live_grep)
 
 -- comment.nvim
 -- unmap("<C-g>")
@@ -111,14 +110,10 @@ vim.keymap.set({ "n", "i" }, "<C-r>", "<Plug>(coc-rename)", {})
 -- map("v", "<C-A-/>", "gb")
 -- map("n", "<C-A-/>", "gb")
 
--- telescope
-local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", telescope.find_files)
-vim.keymap.set("n", "<C-f>", telescope.live_grep)
+
+-- cmap("<C-.>", "<CMD>vim.lsp.buf.format()<CR>")
 
 
--- nvim-tree
--- <C-e> to focus (or toggle)
 
 -- window navigation
 -- control hjkl between windows
@@ -146,4 +141,3 @@ vim.keymap.set("n", "<C-f>", telescope.live_grep)
 
 
 -- use leader probably for some more command-palette type stuff
-

@@ -1,6 +1,3 @@
-
---[[
-
 require("lualine").setup({
   options = {
     icons_enabled = true,
@@ -25,8 +22,8 @@ require("lualine").setup({
     lualine_b = {"branch", "diff", "diagnostics"},
     lualine_c = {"filename"},
     lualine_x = {"encoding", "fileformat", "filetype"},
-    -- lualine_y = {"progress"},
-    lualine_y = {'coc#status', 'b:coc_current_function'},
+    lualine_y = {"progress"},
+    -- lualine_y = {'coc#status', 'b:coc_current_function'},
     lualine_z = {"location"}
   },
   -- inactive_sections = {
@@ -41,11 +38,10 @@ require("lualine").setup({
   winbar = {},
   inactive_winbar = {},
   extensions = {}
-}) 
+})
 
---]]
 
-require("lualine").setup({
+--[[ require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = "ayu_light",
@@ -97,4 +93,4 @@ require("lualine").setup({
 	},
 	tabline = {},
 	extensions = {},
-})
+}) ]]
