@@ -27,6 +27,7 @@ local function on_attach(bufnr)
   end
 
 
+
   -- Default mappings. Feel free to modify or remove as you wish.
   --
   -- BEGIN_DEFAULT_ON_ATTACH
@@ -184,6 +185,10 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'l', '', { buffer = bufnr })
   vim.keymap.del('n', 'l', { buffer = bufnr })
 
+
+  vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NvimTreeNormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "none" })
 
   -- Mappings migrated from view.mappings.list
   --
