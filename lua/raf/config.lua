@@ -19,6 +19,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 vim.opt.incsearch = true
+vim.opt.hlsearch = true
 
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
@@ -29,3 +30,5 @@ vim.opt.autoread = true
 vim.opt.list = true
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.opt.scrolloff = 20
