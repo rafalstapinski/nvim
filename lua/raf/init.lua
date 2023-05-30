@@ -14,14 +14,13 @@ require("raf.plugins.autopairs")
 require("raf.plugins.comment")
 -- require("raf.plugins.lsp")
 -- require("raf.plugins.lspsaga")
-require("startup").setup({theme = "dashboard"})
-
-
+require("startup").setup({ theme = "dashboard" })
+require("focus").setup()
 
 vim.g.sonokai_style = "andromeda"
 vim.g.sonokai_better_performance = 1
 vim.cmd.colorscheme("sonokai")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })

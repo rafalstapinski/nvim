@@ -41,11 +41,19 @@ map("i", "<S-Up>", "<Esc>v<Up>")
 map("i", "<S-Down>", "<Esc>v<Down>")
 map("i", "<S-Left>", "<Esc>v<Left>")
 map("i", "<S-Right>", "<Esc>v<Right>")
-
-cmap("˙", "b")
-cmap("¬", "e")
+map("i", "kj", "<Esc>")
+map("n", "<A-Tab>", "<CMD>bnext<CR>")
+map("n", "<S-A-Tab>", "<CMD>bprev<CR>")
 map("i", "˙", "<Esc>bi")
 map("i", "¬", "<Esc>ea")
+cmap("˙", "b")
+cmap("¬", "e")
+
+map("i", "∆", "<Esc><CMD>move -2<CR>i<Right>")
+map("i", "˚", "<Esc><CMD>move +1<CR>i<Right>")
+cmap("˚", "<CMD>move +1<CR>")
+cmap("∆", "<CMD>move -2<CR>")
+
 
 cmap("<C-h>", "^")
 cmap("<C-l>", "$")
@@ -53,12 +61,14 @@ cmap("<C-l>", "$")
 cmap("<A-Left>", "b")
 cmap("<A-Right>", "e")
 map("i", "<A-Left>", "<Esc>bi")
-map("i", "<A-Right>", "<Esc>ei")
+map("i", "<A-Right>", "<Esc>ea")
 
 map("i", "<C-h>", "<Esc>^i")
-map("i", "<C-l>", "<Esc>$i")
+map("i", "<C-l>", "<Esc>$a")
 map("i", "<C-Left>", "<Esc>^i")
-map("i", "<C-Right>", "<Esc>$i")
+map("i", "<C-Right>", "<Esc>$a")
+
+unmap("<C-j>")
 
 -- clipboard-y things
 map("v", "<C-c>", "y<Esc>i")
@@ -76,9 +86,16 @@ munmap("x")
 munmap("y")
 munmap("u")
 
--- move across windows
+-- window mgmt
 allmap("<C-{>", "<C-W><C-H>")
 allmap("<C-}>", "<C-W><C-L>")
+map("n", "<C-]>", "<CMD>bnext<CR>")
+map("n", "<C-[>", "<CMD>bprev<CR>")
+allmap("<C-q>", "<CMD>bd!<CR><CMD>bnext<CR>")
+map("i", "<C-q>", "<Esc><CMD>bd!<CR><CMD>bnext<CR>")
+map("n", "<C-\\>", "<CMD>vsplit<CR><CMD>FocusEqualise<CR><CMD>FocusDisable<CR>")
+map("n", "<C-w>", "<C-w>q")
+map("n", "<Esc>", "<nop>")
 
 -- toggle terminal
 unmap("<C-t>")
@@ -92,7 +109,7 @@ cmap("<leader>\\", "<CMD>nohl<CR>")
 allmap("<C-e>", "<CMD>NvimTreeFocus<CR>")
 
 -- close buffer
-allmap("<C-w>", "<CMD>:bp | sp | bn | bd!<CR>")
+-- allmap("<C-w>", "<CMD>:bp | sp | bn | bd!<CR>")
 
 -- lazygit
 map("n", "<leader>g", "<CMD>LazyGit<CR>")
@@ -101,6 +118,8 @@ map("n", "<leader>g", "<CMD>LazyGit<CR>")
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", telescope.find_files)
 vim.keymap.set("n", "<C-f>", telescope.live_grep)
+
+-- coc
 
 -- comment.nvim
 -- unmap("<C-g>")

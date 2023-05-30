@@ -1,6 +1,6 @@
 -- null-ls config (formatting)
 
-local lsp_formatting = function(bufnr)
+--[[ local lsp_formatting = function(bufnr)
     vim.lsp.buf.format({
         filter = function(client)
             return client.name == "null-ls"
@@ -18,7 +18,7 @@ null_ls.setup({
         null_ls.builtins.diagnostics.mypy,
     },
 })
-
+]]
 
 -- end null-ls config
 
@@ -26,14 +26,14 @@ null_ls.setup({
 
 local lsp = require("lsp-zero").preset({})
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-lsp.on_attach(function(client, buffno)
+lsp.on_attach(function(_, buffno)
     lsp.default_keymaps({
         buffer = buffno
     })
 
-    if client.supports_method("textDocument/formatting") then
+    --[[ if client.supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffno })
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup,
@@ -42,11 +42,10 @@ lsp.on_attach(function(client, buffno)
                 lsp_formatting(buffno)
             end,
         })
-    end
+    end ]]
 end)
 
 -- End LSP Zero Config
-
 
 
 -- Configure Servers
@@ -55,49 +54,8 @@ local lspconfig = require("lspconfig")
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.pyright.setup({})
--- lspconfig.pylsp.setup({
---     settings = {
---         pylsp = {
---             plugins = {
---                 rope_autoimport = {
---                     enabled = true
---                 },
---                 rope_completion = {
---                     enabled = true,
---                     eager = true,
---                 },
---                 pyflakes = {
---                     enabled = false,
---                 },
---                 autopep8 = {
---                     enabled = false,
---                 },
---                 pycodestyle = {
---                     enabled = false,
---                 },
---                 yapf = {
---                     enabled = false,
---                 },
---                 mccabe = {
---                     enabled = false,
---                 },
---             }
---         }
---     }
--- })
--- lspconfig.pyright.setup({})
--- local pylance = require("pylance")
--- pylance.setup()
---[[ lspconfig.pylance.setup({
-    settings = {
-        python = {
-            analysis = {
-                indexing = true,
-                typeCheckingMode = "basic"
-            }
-        }
-    }
-}) ]]
+
+
 -- -- End Servers Config
 
 lsp.setup()
@@ -169,18 +127,4 @@ cmp.setup({
     }),
 })
 
---[[ cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = "path" }
-    }, {
-        {
-            name = "cmdline",
-            option = {
-                ignore_cmds = { "Man", "!" }
-            }
-        }
-    })
-})
-]]
 -- End CMP Config

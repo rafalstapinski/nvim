@@ -7,7 +7,7 @@ return require("packer").startup(function(use)
         "wbthomason/packer.nvim"
     })
 
-    -- theme
+    -- -- theme
     use({ "sainnhe/sonokai" })
 
     -- web icons
@@ -86,56 +86,69 @@ return require("packer").startup(function(use)
     })
 
     -- window mgmt
-    use({
-        "beauwilliams/focus.nvim"
-    })
 
+    use({
+        "beauwilliams/focus.nvim",
+        config = function()
+            require("focus").setup()
+        end
+    })
+    --[[ use({
+        "roobert/bufferline-cycle-windowless.nvim",
+        requires = {
+            "akinsho/bufferline.nvim"
+        },
+        setup = function()
+            require("bufferline-cycle-windowless").setup({
+                default_enabled = true,
+            })
+        end
+    }) ]]
     use({
         "neoclide/coc.nvim",
         branch = "release",
     })
-
-    --[[ use({
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v2.x",
-        requires = {
-            { "neovim/nvim-lspconfig" },
-            -- mason
-            {
-                "williamboman/mason.nvim",
-                build = function()
-                    pcall(vim.cmd, "MasonUpdate")
-                end
-            },
-            { "williamboman/mason-lspconfig.nvim" },
-            -- autocomp
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "L3MON4D3/LuaSnip" },
-            { "hrsh7th/cmp-cmdline" },
-            { "hrsh7th/cmp-nvim-lsp-signature-help" },
-            { "hrsh7th/cmp-nvim-lua" },
-            { "hrsh7th/cmp-path" },
-            { "lithammer/nvim-pylance" },
-            -- misc
-            { "onsails/lspkind.nvim" },
-            { "simrat39/inlay-hints.nvim" },
-            {
-                "nvimdev/lspsaga.nvim",
-                event = "LspAttach",
-                config = function()
-                    require("lspsaga").setup({})
-                end
-            },
-            { "jose-elias-alvarez/null-ls.nvim",
-
-            },
-            -- nvim cmp buf
-            -- nvim cmp snip
-            -- nvim cmp path
-            -- null ls
-            -- null ls mason
-            -- inlay hints
-        }
-    }) ]]
+    --
+    -- use({
+    --     "VonHeikemen/lsp-zero.nvim",
+    --     branch = "v2.x",
+    --     requires = {
+    --         { "neovim/nvim-lspconfig" },
+    --         -- mason
+    --         {
+    --             "williamboman/mason.nvim",
+    --             build = function()
+    --                 pcall(vim.cmd, "MasonUpdate")
+    --             end
+    --         },
+    --         { "williamboman/mason-lspconfig.nvim" },
+    --         -- autocomp
+    --         { "hrsh7th/nvim-cmp" },
+    --         { "hrsh7th/cmp-nvim-lsp" },
+    --         { "L3MON4D3/LuaSnip" },
+    --         { "hrsh7th/cmp-cmdline" },
+    --         { "hrsh7th/cmp-nvim-lsp-signature-help" },
+    --         { "hrsh7th/cmp-nvim-lua" },
+    --         { "hrsh7th/cmp-path" },
+    --         { "lithammer/nvim-pylance" },
+    --         -- misc
+    --         { "onsails/lspkind.nvim" },
+    --         { "simrat39/inlay-hints.nvim" },
+    --         {
+    --             "nvimdev/lspsaga.nvim",
+    --             event = "LspAttach",
+    --             config = function()
+    --                 require("lspsaga").setup({})
+    --             end
+    --         },
+    --         { "jose-elias-alvarez/null-ls.nvim" },
+    --         { "tamago324/nlsp-settings.nvim" },
+    --         -- nvim cmp buf
+    --         -- nvim cmp snip
+    --         -- nvim cmp path
+    --         -- null ls
+    --         -- null ls mason
+    --         -- inlay hints
+    --     }
+    -- })
 end)
